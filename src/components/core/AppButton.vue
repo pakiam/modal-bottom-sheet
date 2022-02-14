@@ -13,6 +13,7 @@
 import { defineComponent, PropType } from 'vue'
 
 export default defineComponent({
+  name: 'AppButton',
   props: {
     text: {
       type: String,

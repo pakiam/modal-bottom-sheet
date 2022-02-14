@@ -5,12 +5,11 @@
 </template>
 
 <script>
-import { defineComponent, PropType } from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  props: {
-
-  },
+  name: 'Listitems',
+  props: {},
 })
 </script>
 
