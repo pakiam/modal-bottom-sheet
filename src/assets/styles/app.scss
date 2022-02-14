@@ -1,0 +1,70 @@
+@import "~normalize-scss/sass/normalize/import-now";
+
+* {
+  box-sizing: border-box;
+}
+
+// Global
+::-moz-selection {
+  // background: map-get($colors, "blue_19");
+  // color: map-get($colors, "white");
+}
+::selection {
+  // background: map-get($colors, "blue_19");
+  // color: map-get($colors, "white");
+}
+
+html,
+html * {
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+
+}
+
+html {
+  font-size: 6.94444444vw;
+  line-height: normal;
+  font-weight: 500;
+}
+
+.hidden {
+  display: none;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100%;
+}
+
+button {
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  touch-action: manipulation;
+  border-color: unset;
+  border: unset;
+}
+
+body {
+  color: #000;
+  text-size-adjust: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100%;
+  font-size: 0.16rem;
+
+  &.disable-hover,
+  &.disable-hover * {
+    // крайне важно переопределить pointer-events: auto на дочерних элементах
+    pointer-events: none !important;
+  }
+}
