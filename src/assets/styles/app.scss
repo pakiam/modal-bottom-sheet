@@ -32,6 +32,10 @@ html {
   display: none;
 }
 
+.disable-scroll {
+  overflow: hidden;
+}
+
 .text-bold {
   font-weight: 700;
 }
@@ -61,6 +65,7 @@ body {
   min-height: 100vh;
   height: 100%;
   font-size: 0.16rem;
+  overflow-x: hidden;
 
   &.disable-hover,
   &.disable-hover * {

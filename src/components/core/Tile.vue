@@ -20,6 +20,9 @@ interface Tile {
 
 export default defineComponent({
   name: 'Tile',
+  components: {
+    Icon,
+  },
   props: {
     tile: {
       type: Object as PropType<Tile>,
@@ -27,9 +30,6 @@ export default defineComponent({
     },
     // can also annotate functions
     // callback: Function as PropType<(id: number) => void>,
-  },
-  components: {
-    Icon,
   },
 })
 </script>
@@ -45,7 +45,7 @@ export default defineComponent({
   background-color: rgba(0, 0, 0, 0);
   transition: background-color ease-in-out 0.2s;
 
-  &:hover{
+  &:hover {
     background-color: rgba(0, 0, 0, 0.12);
   }
 }

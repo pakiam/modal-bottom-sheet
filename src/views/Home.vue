@@ -4,6 +4,7 @@
       alt="Vue logo"
       src="../assets/logo.png"
     >
+    <!-- You can add prop `persistent` to make it unclosable from outside -->
     <ModalBottomSheet
       :value="sheet"
       @input="sheet = false"
@@ -14,6 +15,11 @@
           @click="onOpen"
         />
       </template>
+
+      <!-- <AppButton
+        text="Закрыть"
+        @click="sheet = false"
+      /> -->
 
       <ListItems>
         <ListItem
