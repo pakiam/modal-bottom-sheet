@@ -77,12 +77,6 @@ import Tile from '@/components/core/Tile.vue'
       this.sheet = !this.sheet
     },
   },
-  // beforeMount () {
-  //   console.log(this.$route.hash)
-  //   if (this.$route.hash) {
-  //     this.sheet = true
-  //   }
-  // },
 })
 export default class Home extends Vue {}
 </script>

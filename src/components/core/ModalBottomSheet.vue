@@ -51,7 +51,6 @@ export default defineComponent({
   },
   watch: {
     value (newVal) {
-      console.log('val')
       clearTimeout(this.closingTimeout as number)
       if (newVal) {
         // @TODO: move as function to composition
