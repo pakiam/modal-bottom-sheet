@@ -50,40 +50,29 @@ export default defineComponent({
     }
   },
   watch: {
-    value (newVal) {
-      clearTimeout(this.closingTimeout as number)
-      if (newVal) {
-        // @TODO: move as function to composition
-        // @TODO: remove duplication
-        (document.querySelector('html') as HTMLElement).classList.add(
-          'disable-scroll',
-        )
-        this.$router.push({ hash: '#modal' })
-      } else {
-        this.closingTimeout = setTimeout(() => {
-          (document.querySelector('html') as HTMLElement).classList.remove(
+    // @TODO: think about extra calling on mount
+    value: {
+      handler (newVal: boolean) {
+        clearTimeout(this.closingTimeout as number)
+        if (newVal) {
+          // @TODO: move as function to composition
+          (document.querySelector('html') as HTMLElement).classList.add(
             'disable-scroll',
           )
-        }, 250)
-        this.$router.push({ hash: '' })
-      }
+          // @TODO save other params
+          this.$router.push({ hash: '#modal' })
+        } else {
+          this.closingTimeout = setTimeout(() => {
+            (document.querySelector('html') as HTMLElement).classList.remove(
+              'disable-scroll',
+            )
+          }, 250)
+          // @TODO save other params
+          this.$router.push({ hash: '' })
+        }
+      },
+      immediate: true,
     },
-  },
-  beforeMount () {
-    // @TODO: disable scroll on mobile devices
-    // @TODO: remove duplication
-    if (this.value) {
-      // @TODO: move as function to composition
-      (document.querySelector('html') as HTMLElement).classList.add(
-        'disable-scroll',
-      )
-    } else {
-      this.closingTimeout = setTimeout(() => {
-        (document.querySelector('html') as HTMLElement).classList.remove(
-          'disable-scroll',
-        )
-      }, 250)
-    }
   },
   methods: {
     onOverlayClick () {
