@@ -45,8 +45,10 @@ export default defineComponent({
   background-color: rgba(0, 0, 0, 0);
   transition: background-color ease-in-out 0.2s;
 
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.12);
+  @media (hover) , (min-width:0\0) , (min--moz-device-pixel-ratio:0) {
+    &:hover{
+      background-color: rgba(0, 0, 0, 0.12);
+    }
   }
 }
 

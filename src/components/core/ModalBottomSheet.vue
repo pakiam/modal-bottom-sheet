@@ -51,20 +51,40 @@ export default defineComponent({
   },
   watch: {
     value (newVal) {
+      console.log('val')
       clearTimeout(this.closingTimeout as number)
       if (newVal) {
         // @TODO: move as function to composition
+        // @TODO: remove duplication
         (document.querySelector('html') as HTMLElement).classList.add(
           'disable-scroll',
         )
+        this.$router.push({ hash: '#modal' })
       } else {
         this.closingTimeout = setTimeout(() => {
           (document.querySelector('html') as HTMLElement).classList.remove(
             'disable-scroll',
           )
         }, 250)
+        this.$router.push({ hash: '' })
       }
     },
+  },
+  beforeMount () {
+    // @TODO: disable scroll on mobile devices
+    // @TODO: remove duplication
+    if (this.value) {
+      // @TODO: move as function to composition
+      (document.querySelector('html') as HTMLElement).classList.add(
+        'disable-scroll',
+      )
+    } else {
+      this.closingTimeout = setTimeout(() => {
+        (document.querySelector('html') as HTMLElement).classList.remove(
+          'disable-scroll',
+        )
+      }, 250)
+    }
   },
   methods: {
     onOverlayClick () {
@@ -107,7 +127,7 @@ export default defineComponent({
 
 .c-modal-bottom-sheet__body {
   z-index: 101;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;

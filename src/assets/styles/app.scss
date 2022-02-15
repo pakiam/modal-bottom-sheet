@@ -26,6 +26,10 @@ html {
   font-size: 6.94444444vw;
   line-height: normal;
   font-weight: 500;
+
+  @media screen and (max-width: 600px) {
+    font-size: 27.7777777vw
+  }
 }
 
 .hidden {
@@ -72,4 +76,8 @@ body {
     // крайне важно переопределить pointer-events: auto на дочерних элементах
     pointer-events: none !important;
   }
+
+  // @media screen and (max-width: 600px) {
+  //   font-size: 0.16rem;
+  // }
 }

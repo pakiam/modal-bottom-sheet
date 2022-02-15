@@ -60,11 +60,35 @@ import Tile from '@/components/core/Tile.vue'
     ListItem,
     Tile,
   },
+  watch: {
+    '$route.hash': {
+      handler: function (newVal: string, oldVal: string) {
+        if (newVal === '#modal') {
+          this.sheet = true
+        } else if (oldVal === '#modal') {
+          this.sheet = false
+        }
+      },
+      immediate: true,
+    },
+  },
   methods: {
     onOpen () {
       this.sheet = !this.sheet
     },
   },
+  // beforeMount () {
+  //   console.log(this.$route.hash)
+  //   if (this.$route.hash) {
+  //     this.sheet = true
+  //   }
+  // },
 })
 export default class Home extends Vue {}
 </script>
+
+<style lang="scss">
+.home {
+  min-height: 1200px;
+}
+</style>
